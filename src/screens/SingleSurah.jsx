@@ -268,9 +268,12 @@ const SingleSurah = () => {
       setNumDownloadedFiles(1);
       setIsPlaySurah(false);
       if (isPlaySurah) {
-        if (soundObject) {
-          soundObject.pauseAsync();
-        }
+        const fn = async () => {
+          if (soundObject) {
+            await soundObject.unloadAsync();
+          }
+        };
+        fn();
       }
       setSoundObject(null);
     }
@@ -283,10 +286,18 @@ const SingleSurah = () => {
   }, [currentAyah]);
 
   useEffect(() => {
-    if (soundObject) {
-      soundObject.pauseAsync();
-      setSoundObject(null);
-    }
+    const fn = async () => {
+      if (soundObject) {
+        try {
+          await soundObject.unloadAsync();
+          setSoundObject(null);
+        } catch (error) {
+          setIsPlaySurah(false);
+          setSoundObject(null);
+        }
+      }
+    };
+    fn();
   }, [currentAyah]);
 
   const onViewableItemsChanged = ({ viewableItems }) => {
