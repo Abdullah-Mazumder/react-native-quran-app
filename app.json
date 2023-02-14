@@ -1,0 +1,25 @@
+{
+  "expo": {
+    "name": "Quran",
+    "slug": "Quran",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/image/brand.png",
+    "userInterfaceStyle": "light",
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": ""
+      }
+    },
+    "android": {
+      "package": ""
+    }
+  }
+}
