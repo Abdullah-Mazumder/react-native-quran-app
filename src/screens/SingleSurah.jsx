@@ -14,6 +14,7 @@ import {
 } from "@react-navigation/native";
 import { IconButton, Pressable } from "@react-native-material/core";
 import Ionicon from "react-native-vector-icons/Ionicons";
+import FontAwesome from "react-native-vector-icons/FontAwesome5";
 import convertToBanglaNumber from "engnumber-to-banglanumber";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -458,6 +459,7 @@ const SingleSurah = () => {
                         >
                           <View className="flex flex-row justify-center">
                             <CustomButton
+                              uniqueColor={true}
                               title={`আয়াত-${convertToBanglaNumber(
                                 id.toString()
                               )}`}
@@ -823,11 +825,10 @@ const SingleSurah = () => {
                               setDownloadWarningModal(true);
                             }}
                           >
-                            <Ionicon
-                              name="play"
-                              size={28}
+                            <FontAwesome
+                              name="download"
+                              size={23}
                               color={color.activeIconColor}
-                              className="ml-1"
                             />
                           </Pressable>
                         </View>
